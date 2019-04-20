@@ -33,7 +33,7 @@ public class RouteServiceControllerV1 {
         return ResponseEntity.status(HttpStatus.OK).body(routes);
     }
 
-    @GetMapping("/route/{origin}/{destination}/")
+    @GetMapping("/route/{origin}/{destination}")
     public ResponseEntity<ShortRouteDTO> getShortestRoute(
             @PathVariable(value = "origin") String origin,
             @PathVariable(value = "destination") String destination) {

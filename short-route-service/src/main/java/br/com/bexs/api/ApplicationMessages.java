@@ -20,4 +20,5 @@ public class ApplicationMessages {
     private String originNotFound;
     private String inputFileNotFound;
     private String errorWritingFile;
+    private String noRoutesFound;
 }

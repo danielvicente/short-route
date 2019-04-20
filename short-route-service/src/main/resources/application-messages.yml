@@ -7,3 +7,4 @@ http-message:
     origin-not-found: Origem não existe.
     input-file-not-found: Arquivo para persistencia não encontrado.
     error-writing-file: Erro ao atualizar rotas no arquivo de input.
+    no-routes-found: Nenhuma rota foi criada ainda.

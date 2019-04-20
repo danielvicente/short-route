@@ -32,7 +32,12 @@ public class RouteServiceFacade {
 
     private File inputFile;
 
+    private String fileLocation;
+
     public List<RouteDTO> findAllRoutes() {
+        if (this.inputFile == null || this.routeCsvs == null) {
+            throw new EntityNotFoundException(messages.getNoRoutesFound());
+        }
         return this.routeCsvs;
     }
 
@@ -67,7 +72,7 @@ public class RouteServiceFacade {
             pw.append("\r\n").append(origin).append(",").append(destination).append(",").append(String.valueOf(price));
             pw.flush();
             pw.close();
-            this.initRoutes(this.inputFile.getAbsolutePath());
+            this.initRoutes();
             return new RouteDTO(origin, destination, price);
         } catch (IOException e) {
             throw new ResourceNotModifiedException(messages.getErrorWritingFile());
@@ -75,8 +80,16 @@ public class RouteServiceFacade {
 
     }
 
-    public void initRoutes(String fileLocation) throws IOException {
-        this.inputFile = FileUtils.getInputFile(fileLocation);
+    public String getFileLocation() {
+        return this.fileLocation;
+    }
+
+    public void setFileLocation(String fileLocation) {
+        this.fileLocation = fileLocation;
+    }
+
+    public void initRoutes() throws IOException {
+        this.inputFile = FileUtils.getInputFile(getFileLocation());
         this.routeCsvs = FileUtils.processInputFile(this.inputFile);
 
         List<Location> locations = getLocations(this.routeCsvs);
