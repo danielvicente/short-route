@@ -109,7 +109,7 @@ Output:
     "origin":"GRU",
     "destination":"CDG",
     "fullShortRoute":"GRU - SCL - ORL - CDG",
-    "Between":45
+    "priceBetween":45
 }
 ```
 
