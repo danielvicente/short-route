@@ -1,0 +1,9 @@
+http-message:
+  not-modified:
+    route-not-found: Rota não existe.
+    route-already-defined: Rota já existe.
+    route-not-defined: Nenhuma rota criada.
+    route-not-defined-for-destination: Nenhuma rota criada para este destino.
+    origin-not-found: Origem não existe.
+    input-file-not-found: Arquivo para persistencia não encontrado.
+    error-writing-file: Erro ao atualizar rotas no arquivo de input.
